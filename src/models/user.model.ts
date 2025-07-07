@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { encrypt } from "../utils/encryption";
 
 export interface IUser {
   fullName: string;
@@ -51,6 +52,12 @@ const userSchema = new Schema<IUser>(
   },
   { timestamps: true, versionKey: false }
 );
+
+userSchema.pre("save", function (next) {
+  const user = this;
+  user.password = encrypt(user.password);
+  next();
+});
 
 const UserModel = mongoose.model<IUser>("User", userSchema);
 
