@@ -28,6 +28,16 @@ const doc = {
         identifier: "firmanuser",
         password: "password",
       },
+      RegisterRequest: {
+        fullName: "Firman Perdana",
+        userName: "firmanuser",
+        email: "firman.fp123@gmail.com",
+        password: "password",
+        confirmPassword: "password",
+      },
+      ActivationRequest: {
+        code: "abcdef",
+      },
     },
   },
 };
